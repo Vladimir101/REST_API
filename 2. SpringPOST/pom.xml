@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.rest</groupId>
-  <artifactId>Spring</artifactId>
+  <artifactId>SpringPOST</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>Spring</name>
+  <name>SpringPOST</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -21,7 +21,7 @@
       <version>4.12</version>
       <scope>test</scope>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+       <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-core</artifactId>
