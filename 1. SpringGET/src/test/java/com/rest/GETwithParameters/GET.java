@@ -19,10 +19,10 @@ public class GET
 	@Test
 	public void GETwithParameters()
 	{
-		HashMap<String, String> vars = new HashMap<String, String>();
-		vars.put("q", "San Francisco");
-		vars.put("appid", "a176e0999da6ade934326ce91abde8ea");
-		String page = restTemplate.getForObject(URL, String.class, vars);
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("q", "San Francisco");
+		params.put("appid", "a176e0999da6ade934326ce91abde8ea");
+		String page = restTemplate.getForObject(URL, String.class, params);
 		System.out.println(page);
 	}
 }
