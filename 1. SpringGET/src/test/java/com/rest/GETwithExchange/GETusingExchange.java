@@ -11,7 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-public class GET
+public class GETusingExchange
 {
 	private RestTemplate restTemplate;
 	private String URL = "https://jsonview.com/example.json";
@@ -35,13 +35,16 @@ public class GET
         ResponseEntity<String> response = restTemplate.exchange(URL,
                      HttpMethod.GET, requestEntity, String.class);
 
-// response header
-         MediaType responseHeader = response.getHeaders().getContentType();
-         System.out.println("Content-Type: " + responseHeader);
+// response headers
+        MediaType responseContentType = response.getHeaders().getContentType();  
+        System.out.println("Content-Type: " + responseContentType);
+        
+        long responseContentLegth = response.getHeaders().getContentLength();
+        System.out.println("Content-Length: " + responseContentLegth);
 
 // response body        
          String body = response.getBody();
-         System.out.println("Body: " + body);
+         System.out.println("Body: \n" + body);
 
 // status code         
          int statusCode = response.getStatusCodeValue();
