@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.web.client.RestTemplate;
 
-public class GET
+public class GETsimple
 {
 	private RestTemplate restTemplate;
 	private String URL = "http://worldtimeapi.org/api/timezone/America/Los_Angeles";
