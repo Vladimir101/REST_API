@@ -21,15 +21,15 @@ public class GET
 	@Test
 	public void GETasString()
 	{
-		String page = restTemplate.getForObject(URL, String.class);
-		System.out.println(page);
+		String response = restTemplate.getForObject(URL, String.class);
+		System.out.println(response);
 	}
 
 	@Test
-	public void GET_JSONasPOJO()
+	public void GETasPOJO()
 	{
-		TimezonePage page = restTemplate.getForObject(URL, TimezonePage.class);
-		assertEquals("PST", page.getAbbreviation());
-		assertFalse(page.getDst());
+		TimezonePage response = restTemplate.getForObject(URL, TimezonePage.class);
+		assertEquals("PDT", response.getAbbreviation());
+		assertTrue(response.getDst());
 	}
 }
