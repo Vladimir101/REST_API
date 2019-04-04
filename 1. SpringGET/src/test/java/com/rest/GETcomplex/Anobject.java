@@ -1,5 +1,19 @@
 package com.rest.GETcomplex;
-
+/* Since anarray contains elements of different types (int and String)
+ * https://codebeautify.org/json-to-java-converter does not know how to 
+ * deal with that array and DOES NOT create getter and setter for the field.
+ * We must add them manually
+ 
+"anobject": {
+    "whoa": "nuts",
+    "anarray": [
+        1,
+        2,
+        "thr<h1>ee"
+    ],
+    "more": "stuff"
+},
+*/
 import java.util.ArrayList;
 
 public class Anobject
@@ -19,10 +33,20 @@ public class Anobject
 		return more;
 	}
 
+	public ArrayList<Object> getAnarray()
+	{
+		return anarray;
+	}
+
 	// Setter Methods
 	public void setWhoa(String whoa)
 	{
 		this.whoa = whoa;
+	}
+
+	public void setAnarray(ArrayList<Object> anarray)
+	{
+		this.anarray = anarray;
 	}
 
 	public void setMore(String more)
