@@ -34,16 +34,16 @@ public class POST
 		requestHeaders.set("MyRequestHeader", "MyValue"); 
 		
 // specify entity body
-		Map<String, String> map = new HashMap<String, String>(); 
-		map.put("firstname", "Vladimir"); 
-		map.put("lastname", "Belorusets"); 
-		map.put("city", "Foster City"); 
+		Map<String, String> body = new HashMap<String, String>(); 
+		body.put("firstname", "Vladimir"); 
+		body.put("lastname", "Belorusets"); 
+		body.put("city", "Foster City"); 
 		
 // requestEntity includes both headers and body
 		HttpEntity<Map<String, String>> requestEntity = 
-				new HttpEntity<Map<String, String>>( map, requestHeaders); 
+				new HttpEntity<Map<String, String>>( body, requestHeaders); 
 
-		String result = restTemplate.postForObject(URL, requestEntity, String.class);
-		System.out.println(result);
+		String response = restTemplate.postForObject(URL, requestEntity, String.class);
+		System.out.println(response);
 	}
 }
