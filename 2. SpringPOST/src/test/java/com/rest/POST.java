@@ -55,5 +55,8 @@ public class POST
 		JsonNode root = objectMapper.readTree(response);
 		System.out.println(root.get("status"));
 		System.out.println(root.get("message"));
+		System.out.println(root.get("data"));
+// get nested data		
+		System.out.println(root.get("data").get(0).get("firstname"));
 	}
 }
