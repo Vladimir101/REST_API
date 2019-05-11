@@ -11,11 +11,15 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.client.RestTemplate;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class POST
 {
 	private RestTemplate restTemplate;
 	private String URL = "http://www.htmlgoon.com/api/POST_JSON_Service.php";
-
+	private ObjectMapper objectMapper = new ObjectMapper();
+	
 	@Before
 	public void setUp() throws Exception
 	{
@@ -23,7 +27,7 @@ public class POST
 	}
 
 	@Test
-	public void POSTwithEntityBody()
+	public void POSTwithEntityBody() throws Exception
 	{
 // specify request headers 
 		HttpHeaders requestHeaders = new HttpHeaders();
@@ -40,10 +44,16 @@ public class POST
 		body.put("city", "Foster City"); 
 		
 // requestEntity includes both headers and body
+// Map refers to the entity body		
 		HttpEntity<Map<String, String>> requestEntity = 
 				new HttpEntity<Map<String, String>>( body, requestHeaders); 
 
 		String response = restTemplate.postForObject(URL, requestEntity, String.class);
 		System.out.println(response);
+
+// Using Jackson library for mapping		
+		JsonNode root = objectMapper.readTree(response);
+		System.out.println(root.get("status"));
+		System.out.println(root.get("message"));
 	}
 }
