@@ -1,18 +1,20 @@
 // must have Jackson libraries as dependencies
 package com.rest.GETsimple;
 
-import static org.junit.Assert.*;
 
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.*;
 import org.springframework.web.client.RestTemplate;
+
+import com.rest.GETsimple.pages.TimezonePage;
 
 public class GETsimple
 {
 	private RestTemplate restTemplate;
 	private String URL = "http://worldtimeapi.org/api/timezone/America/Los_Angeles";
 
-	@Before
+	@BeforeEach
 	public void setUp()
 	{
 		restTemplate = new RestTemplate();

@@ -15,7 +15,7 @@ public class GET
 		System.out.println(response.getJapanese());
 		System.out.println(response.getNotLink());
 		System.out.println(response.getAnobject().getMore());
-// Since anarray was mapped to the ArrayList of Objects, we must cast the its values 
+// Since an array was mapped to the ArrayList of Objects, we must cast the its values 
 // to the correct data type		
 		System.out.println((Integer)response.getAnobject().getAnarray().get(0));
 		System.out.println((String)response.getAnobject().getAnarray().get(2));	

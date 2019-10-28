@@ -1,4 +1,4 @@
-package com.rest.GETsimple;
+package com.rest.GETsimple.pages;
 
 public class TimezonePage
 {
