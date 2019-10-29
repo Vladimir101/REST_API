@@ -1,0 +1,1 @@
+{"post code": "94404", "country": "United States", "country abbreviation": "US", "places": [{"place name": "San Mateo", "longitude": "-122.27", "state": "California", "state abbreviation": "CA", "latitude": "37.5538"}]}

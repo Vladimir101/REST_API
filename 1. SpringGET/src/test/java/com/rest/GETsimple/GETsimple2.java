@@ -1,10 +1,11 @@
 package com.rest.GETsimple;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.approvaltests.Approvals;
+import org.junit.jupiter.api.*;
 import org.springframework.web.client.RestTemplate;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rest.GETsimple.pages.PostCode;
 
 class GETsimple2
@@ -18,17 +19,23 @@ class GETsimple2
 		restTemplate = new RestTemplate();
 	}
 
-	@AfterEach
-	void tearDown() throws Exception
-	{
-	}
-
 	@Test
-	void test()
+	void test1() throws JsonProcessingException
 	{
 		PostCode response = restTemplate.getForObject(URL, PostCode.class);
+		ObjectMapper mapper = new ObjectMapper();
+		String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(response);
 		System.out.println(response.getPost_code());
 		System.out.println(response.getCountry_abbreviation());
 		System.out.println(response.getPlaces().get(0).getPlace_name());
+		Approvals.verify(json);
+	}
+	
+
+	@Test
+	void test2()
+	{
+		String response = restTemplate.getForObject(URL, String.class);
+		Approvals.verify(response);
 	}
 }

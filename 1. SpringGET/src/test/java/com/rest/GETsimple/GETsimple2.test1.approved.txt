@@ -1,0 +1,12 @@
+{
+  "country" : "United States",
+  "places" : [ {
+    "longitude" : "-122.27",
+    "state" : "California",
+    "latitude" : "37.5538",
+    "place name" : "San Mateo",
+    "state abbreviation" : "CA"
+  } ],
+  "post code" : "94404",
+  "country abbreviation" : "US"
+}
