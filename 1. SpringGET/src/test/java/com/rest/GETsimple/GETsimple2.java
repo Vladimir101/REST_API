@@ -1,6 +1,8 @@
 package com.rest.GETsimple;
 
 import org.approvaltests.Approvals;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.junit.jupiter.api.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -33,9 +35,12 @@ class GETsimple2
 	
 
 	@Test
-	void test2()
+	void test2() throws JSONException
 	{
 		String response = restTemplate.getForObject(URL, String.class);
+		JSONObject json = new JSONObject(response); // Convert text to object
+		System.out.println("Pretty print:");
+		System.out.println(json.toString(4)); // Print it with specified indentation
 		Approvals.verify(response);
 	}
 }
