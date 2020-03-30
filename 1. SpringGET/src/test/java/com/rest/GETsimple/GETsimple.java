@@ -15,20 +15,20 @@ public class GETsimple
 	private String URL = "http://worldtimeapi.org/api/timezone/America/Los_Angeles";
 
 	@BeforeEach
-	public void setUp()
+	void setUp()
 	{
 		restTemplate = new RestTemplate();
 	}
 
 	@Test
-	public void GETasString()
+	void GETasString()
 	{
 		String response = restTemplate.getForObject(URL, String.class);
 		System.out.println(response);
 	}
 
 	@Test
-	public void GETasPOJO()
+	void GETasPOJO()
 	{
 		TimezonePage response = restTemplate.getForObject(URL, TimezonePage.class);
 		assertEquals("PDT", response.getAbbreviation());
